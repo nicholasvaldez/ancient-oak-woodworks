@@ -1,0 +1,66 @@
+---
+import  ImageWithFallback  from './ui/ImageWithFallback.astro';
+---
+
+<section id="about" class="py-20 bg-background">
+  <div class="container mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+     <div class="relative">
+      <ImageWithFallback
+      src="/images/tyler.jpg"
+      alt="Tyler Anderson, master craftsman and owner of Ancient Oak Woodworks"
+      class="rounded-2xl shadow-xl w-full object-cover "
+      />
+    </div>
+      
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <h2 class="text-3xl md:text-4xl font-heading text-primary">
+            Meet Tyler Anderson
+          </h2>
+          <p class="text-lg font-body text-muted-foreground leading-relaxed">
+          Tyler Anderson founded Ancient Oak Woodworks with a simple mission: to create furniture that tells a story and lasts for generations. His meticulous attention to detail and unwavering dedication to the craft shine through in every piece he creates.
+          </p>
+          <p class="font-body text-muted-foreground leading-relaxed">
+            Every piece is meticulously handcrafted using traditional techniques combined with modern precision. Working from his garage workshop while balancing a full-time job, Tyler pours his heart into each creation. Supported by his wife Ana and their beloved bunny Giuseppe, his Christian faith drives him to infuse every piece with genuine love and care, honoring the natural beauty of wood through patient, detailed craftsmanship.
+          </p>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="bg-muted p-6 rounded-xl border border-border">
+            <h3 class="text-lg font-heading text-accent-warm mb-2">Handcrafted with Heart</h3>
+            <p class="font-body text-muted-foreground text-sm">Every piece is made with genuine care and attention in a dedicated garage workshop, balancing passion with purpose.</p>
+          </div>
+          <div class="bg-muted p-6 rounded-xl border border-border">
+            <h3 class="text-lg font-heading text-accent-warm mb-2">Sustainable Practices</h3>
+            <p class="font-body text-muted-foreground text-sm">Committed to using responsibly sourced materials and eco-friendly finishes.</p>
+          </div>
+        </div>
+        
+        <div class="space-y-4">
+          <h3 class="text-xl font-heading text-primary">Our Values</h3>
+          <div class="space-y-3">
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-accent-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="font-body text-foreground">Quality craftsmanship that stands the test of time</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-accent-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="font-body text-foreground">Personalized service and attention to detail</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-accent-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="font-body text-foreground">Sustainable and environmentally conscious practices</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, alt, class: className = '', loading = 'lazy' } = Astro.props;
+---
+
+<img 
+  src={src} 
+  alt={alt} 
+  class={className}
+  loading={loading}
+/>
+
+<script>
+  // Add error handling for image fallback
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      img.addEventListener('error', function() {
+        this.src = 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80';
+      });
+    });
+  });
+</script>

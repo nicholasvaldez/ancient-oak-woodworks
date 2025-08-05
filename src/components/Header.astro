@@ -1,0 +1,54 @@
+---
+// No component script needed for this static header
+---
+
+<header class="bg-white shadow-sm fixed w-full top-0 z-50">
+  <nav class="container mx-auto px-6 py-2">
+    <div class="flex items-center justify-between">
+        <div class="flex items-center">
+            <img 
+                src="/logo.svg" 
+                alt="Ancient Oak Woodworks" 
+                class="h-12 w-auto"
+            />
+        </div>
+      
+      
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="text-gray-700 hover:text-amber-700 transition-colors">Home</a>
+        <a href="#portfolio" class="text-gray-700 hover:text-amber-700 transition-colors">Portfolio</a>
+        <a href="#about" class="text-gray-700 hover:text-amber-700 transition-colors">About</a>
+        <a href="#contact" class="text-gray-700 hover:text-amber-700 transition-colors">Contact</a>
+      </div>
+      
+      <button class="md:hidden text-gray-700" id="mobile-menu-button">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="md:hidden mt-4 hidden" id="mobile-menu">
+      <div class="flex flex-col space-y-2">
+        <a href="#home" class="text-gray-700 hover:text-amber-700 transition-colors py-2">Home</a>
+        <a href="#about" class="text-gray-700 hover:text-amber-700 transition-colors py-2">About</a>
+        <a href="#services" class="text-gray-700 hover:text-amber-700 transition-colors py-2">Services</a>
+        <a href="#portfolio" class="text-gray-700 hover:text-amber-700 transition-colors py-2">Portfolio</a>
+        <a href="#contact" class="text-gray-700 hover:text-amber-700 transition-colors py-2">Contact</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
+</script>

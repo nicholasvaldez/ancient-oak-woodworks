@@ -1,0 +1,243 @@
+/* Import brand fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors - Following 60-30-10 Rule */
+  
+  /* 60% - Dominant Background (warm off-white) */
+  --background: #FEFCF8;
+  --card: #FEFCF8;
+  --popover: #FEFCF8;
+  --sidebar: #FEFCF8;
+  
+  /* 30% - Secondary (sage green and warm grays) */
+  --secondary: #9CAF88;
+  --secondary-foreground: #1B4332;
+  --muted: #F5F3EF;
+  --muted-foreground: #6B7563;
+  --accent: #E8EDE4;
+  --accent-foreground: #1B4332;
+  --accent-warm: #8B5A3C;
+  --accent-warm-foreground: #FEFCF8;
+  --accent-warm-light: #C08B6B;
+  --accent-warm-light-foreground: #1B4332;
+  --input-background: #F5F3EF;
+  --switch-background: #D4D7CE;
+  --border: rgba(27, 67, 50, 0.15);
+  --sidebar-accent: #E8EDE4;
+  --sidebar-border: #E0E3DD;
+  
+  /* 10% - Brand Accent (main green) */
+  --primary: #1B4332;
+  --primary-foreground: #FEFCF8;
+  --sidebar-primary: #1B4332;
+  --sidebar-primary-foreground: #FEFCF8;
+  
+  /* Text Colors */
+  --foreground: #2D3E2A;
+  --card-foreground: #2D3E2A;
+  --popover-foreground: #2D3E2A;
+  --sidebar-foreground: #2D3E2A;
+  --sidebar-accent-foreground: #1B4332;
+  
+  /* Functional Colors */
+  --destructive: #DC2626;
+  --destructive-foreground: #FEFCF8;
+  --input: transparent;
+  --ring: #1B4332;
+  --sidebar-ring: #1B4332;
+  
+  /* Typography */
+  --font-size: 16px;
+  --font-heading: 'Lora', system-ui, sans-serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --font-weight-heading: 600;
+  --font-weight-body: 200;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  
+  /* Spacing */
+  --radius: 0.5rem;
+  
+  /* Chart colors (nature-inspired palette) */
+  --chart-1: #1B4332;
+  --chart-2: #9CAF88;
+  --chart-3: #6B8A5A;
+  --chart-4: #D4D7CE;
+  --chart-5: #A8B499;
+}
+
+.dark {
+  /* Dark mode with inverted brand colors */
+  --background: #0F1A12;
+  --foreground: #E8EDE4;
+  --card: #1A2B1D;
+  --card-foreground: #E8EDE4;
+  --popover: #1A2B1D;
+  --popover-foreground: #E8EDE4;
+  --primary: #9CAF88;
+  --primary-foreground: #0F1A12;
+  --secondary: #2D4A32;
+  --secondary-foreground: #E8EDE4;
+  --muted: #1A2B1D;
+  --muted-foreground: #A8B499;
+  --accent: #2D4A32;
+  --accent-foreground: #E8EDE4;
+  --accent-warm: #A67C5A;
+  --accent-warm-foreground: #0F1A12;
+  --accent-warm-light: #D4A884;
+  --accent-warm-light-foreground: #0F1A12;
+  --destructive: #EF4444;
+  --destructive-foreground: #E8EDE4;
+  --border: rgba(156, 175, 136, 0.2);
+  --input: #2D4A32;
+  --ring: #9CAF88;
+  --sidebar: #0F1A12;
+  --sidebar-foreground: #E8EDE4;
+  --sidebar-primary: #9CAF88;
+  --sidebar-primary-foreground: #0F1A12;
+  --sidebar-accent: #2D4A32;
+  --sidebar-accent-foreground: #E8EDE4;
+  --sidebar-border: #2D4A32;
+  --sidebar-ring: #9CAF88;
+}
+
+@layer base {
+  * {
+    @apply border-0;
+    border-color: var(--border);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-body);
+  }
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-heading);
+  }
+
+  h1:not([class*="text-"]) {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--primary);
+  }
+
+  h2:not([class*="text-"]) {
+    font-size: 2rem;
+    line-height: 1.3;
+    color: var(--primary);
+  }
+
+  h3:not([class*="text-"]) {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: var(--foreground);
+  }
+
+  h4:not([class*="text-"]) {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--foreground);
+  }
+
+  h5:not([class*="text-"]) {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    color: var(--foreground);
+  }
+
+  h6:not([class*="text-"]) {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--foreground);
+  }
+
+  p:not([class*="text-"]) {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: var(--font-weight-body);
+    line-height: 1.6;
+    color: var(--foreground);
+  }
+
+  label:not([class*="text-"]) {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+    color: var(--foreground);
+  }
+
+  button {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: var(--font-weight-heading);
+    line-height: 1.5;
+  }
+
+  input, textarea, select {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
+
+/* Custom utility classes for brand consistency */
+@layer utilities {
+  .text-brand-primary {
+    color: var(--primary);
+  }
+  
+  .bg-brand-primary {
+    background-color: var(--primary);
+  }
+  
+  .text-brand-secondary {
+    color: var(--secondary);
+  }
+  
+  .bg-brand-secondary {
+    background-color: var(--secondary);
+  }
+  
+  .text-brand-accent-warm {
+    color: var(--accent-warm);
+  }
+  
+  .bg-brand-accent-warm {
+    background-color: var(--accent-warm);
+  }
+  
+  .text-brand-accent-warm-light {
+    color: var(--accent-warm-light);
+  }
+  
+  .bg-brand-accent-warm-light {
+    background-color: var(--accent-warm-light);
+  }
+  
+  .font-heading {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-heading);
+  }
+  
+  .font-body {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-body);
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
