@@ -16,3 +16,4 @@ collections:
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Completion Date", name: "date", widget: "datetime"}

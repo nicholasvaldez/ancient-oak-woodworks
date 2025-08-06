@@ -7,6 +7,7 @@ const portfolioCollection = defineCollection({
     description: z.string(),
     image: z.string(),
     featured: z.boolean().default(false),
+    date: z.date(),
   }),
 });
 

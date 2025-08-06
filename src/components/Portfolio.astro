@@ -4,7 +4,7 @@ import ImageWithFallback from './ui/ImageWithFallback.astro';
 
 // Get all portfolio items and sort by date (newest first)
 const portfolioItems: CollectionEntry<'portfolio'>[] = await getCollection('portfolio');
-const sortedItems = portfolioItems.sort((a, b) => 
+const sortedItems = portfolioItems.sort((a, b) =>
   new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
@@ -36,15 +36,6 @@ const finalItems: CollectionEntry<'portfolio'>[] = displayItems.length > 0 ? dis
             <div class="absolute bottom-4 left-4 right-4 text-white">
               <h3 class="text-lg font-heading mb-1">{item.data.title}</h3>
               <p class="text-sm font-body opacity-90">{item.data.description}</p>
-              <div class="flex items-center space-x-2 mt-2 text-xs opacity-75">
-                <span>{item.data.woodType}</span>
-                {item.data.dimensions && (
-                  <>
-                    <span>•</span>
-                    <span>{item.data.dimensions}</span>
-                  </>
-                )}
-              </div>
             </div>
           </div>
         </div>
@@ -52,8 +43,8 @@ const finalItems: CollectionEntry<'portfolio'>[] = displayItems.length > 0 ? dis
     </div>
     
     <div class="text-center mt-12">
-      <a 
-        href="#contact" 
+      <a
+        href="#contact"
         class="inline-flex items-center space-x-2 bg-accent-warm text-accent-warm-foreground font-heading px-8 py-4 rounded-lg hover:bg-accent-warm/90 transition-colors"
       >
         <span>Start Your Custom Project</span>
