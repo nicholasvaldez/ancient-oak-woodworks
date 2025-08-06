@@ -1,5 +1,16 @@
 ---
+import { getCollection, type CollectionEntry } from 'astro:content';
 import ImageWithFallback from './ui/ImageWithFallback.astro';
+
+// Get all portfolio items and sort by date (newest first)
+const portfolioItems: CollectionEntry<'portfolio'>[] = await getCollection('portfolio');
+const sortedItems = portfolioItems.sort((a, b) => 
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+// Get only featured items or first 6 items
+const displayItems = sortedItems.filter((item: CollectionEntry<'portfolio'>) => item.data.featured).slice(0, 6);
+const finalItems: CollectionEntry<'portfolio'>[] = displayItems.length > 0 ? displayItems : sortedItems.slice(0, 6);
 ---
 
 <section id="portfolio" class="py-20 bg-background">
@@ -14,89 +25,30 @@ import ImageWithFallback from './ui/ImageWithFallback.astro';
     </div>
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="group relative overflow-hidden rounded-xl bg-muted border border-border">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=600&q=80"
-          alt="Custom walnut dining table with live edge"
-          class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute bottom-4 left-4 right-4 text-white">
-            <h3 class="text-lg font-heading mb-1">Live Edge Walnut Table</h3>
-            <p class="text-sm font-body opacity-90">Custom 8-seat dining table</p>
+      {finalItems.map((item) => (
+        <div class="group relative overflow-hidden rounded-xl bg-muted border border-border">
+          <ImageWithFallback
+            src={item.data.image}
+            alt={item.data.title}
+            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <h3 class="text-lg font-heading mb-1">{item.data.title}</h3>
+              <p class="text-sm font-body opacity-90">{item.data.description}</p>
+              <div class="flex items-center space-x-2 mt-2 text-xs opacity-75">
+                <span>{item.data.woodType}</span>
+                {item.data.dimensions && (
+                  <>
+                    <span>•</span>
+                    <span>{item.data.dimensions}</span>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="group relative overflow-hidden rounded-xl bg-muted border border-border">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80"
-          alt="Built-in oak bookshelf with custom lighting"
-          class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute bottom-4 left-4 right-4 text-white">
-            <h3 class="text-lg font-heading mb-1">Built-in Oak Bookshelf</h3>
-            <p class="text-sm font-body opacity-90">Floor-to-ceiling library</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="group relative overflow-hidden rounded-xl bg-muted border border-border">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80"
-          alt="Modern cherry wood kitchen cabinets"
-          class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute bottom-4 left-4 right-4 text-white">
-            <h3 class="text-lg font-heading mb-1">Cherry Kitchen Cabinets</h3>
-            <p class="text-sm font-body opacity-90">Full kitchen renovation</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="group relative overflow-hidden rounded-xl bg-muted border border-border">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=600&q=80"
-          alt="Rustic reclaimed wood conference table"
-          class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute bottom-4 left-4 right-4 text-white">
-            <h3 class="text-lg font-heading mb-1">Reclaimed Wood Conference Table</h3>
-            <p class="text-sm font-body opacity-90">12-person boardroom table</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="group relative overflow-hidden rounded-xl bg-muted border border-border">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
-          alt="Custom maple bedroom set with matching nightstands"
-          class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute bottom-4 left-4 right-4 text-white">
-            <h3 class="text-lg font-heading mb-1">Maple Bedroom Set</h3>
-            <p class="text-sm font-body opacity-90">King bed with matching furniture</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="group relative overflow-hidden rounded-xl bg-muted border border-border">
-        <ImageWithFallback
-          src="https://images.unsplash.com/photo-1574180566232-aaad1b5b8450?auto=format&fit=crop&w=600&q=80"
-          alt="Elegant mahogany executive desk with brass hardware"
-          class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute bottom-4 left-4 right-4 text-white">
-            <h3 class="text-lg font-heading mb-1">Mahogany Executive Desk</h3>
-            <p class="text-sm font-body opacity-90">Corner office centerpiece</p>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
     
     <div class="text-center mt-12">
