@@ -1,30 +1,74 @@
+---
+// src/pages/success.astro
+import Layout from '../layouts/Layout.astro';
+---
 
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Thank You - Tyler Anderson Woodworks</title>
-</head>
-<body class="bg-background text-foreground">
-    <div class="min-h-screen flex items-center justify-center px-6">
-        <div class="text-center max-w-md">
-            <div class="w-16 h-16 bg-accent-warm-light rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg class="w-8 h-8 text-accent-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
+<Layout title="Thank You - Tyler Anderson Woodworks">
+  <section class="bg-gradient-to-br from-background to-muted">
+    <div class="container mx-auto px-6">
+      <div class="min-h-screen flex items-center justify-center">
+        <div class="text-center max-w-lg">
+          <!-- Success Icon Card -->
+          <div class="bg-card p-8 rounded-2xl shadow-lg border border-border mb-8">
+            <div class="w-20 h-20 bg-accent-warm-light rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-10 h-10 text-accent-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
             </div>
-            <h1 class="text-3xl font-heading text-primary mb-4">Thank You!</h1>
-            <p class="text-lg font-body text-muted-foreground mb-8">
-                Your project inquiry has been received. Tyler will get back to you within 24 hours.
+            
+            <h1 class="text-4xl md:text-5xl font-heading text-primary mb-4">Thank You!</h1>
+            
+            <p class="text-lg font-body text-muted-foreground mb-6 leading-relaxed">
+              Your project inquiry has been received. Tyler will get back to you within 24 hours to discuss your custom furniture vision.
             </p>
-            <a 
+            
+            <!-- What's Next Section -->
+            <div class="bg-muted p-6 rounded-xl mb-8">
+              <h3 class="text-lg font-heading text-accent-warm mb-3">What Happens Next?</h3>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between items-center">
+                  <span class="font-body text-muted-foreground">Tyler reviews your project</span>
+                  <span class="font-heading text-accent-warm">Within 24 hrs</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="font-body text-muted-foreground">Initial consultation call</span>
+                  <span class="font-heading text-accent-warm">2-3 days</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="font-body text-muted-foreground">Design & quote delivery</span>
+                  <span class="font-heading text-accent-warm">1-2 weeks</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
                 href="/" 
-                class="inline-flex items-center px-6 py-3 bg-accent-warm text-accent-warm-foreground font-heading rounded-lg hover:bg-accent-warm/90 transition-colors"
-            >
+                class="bg-accent-warm text-accent-warm-foreground font-heading px-8 py-4 rounded-lg hover:bg-accent-warm/90 transition-colors text-center"
+              >
                 ← Back to Home
+              </a>
+              <a 
+                href="/#portfolio" 
+                class="bg-primary text-primary-foreground font-heading px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors text-center"
+              >
+                View Portfolio
+              </a>
+            </div>
+          </div>
+          
+          <!-- Contact Info -->
+          <div class="text-center">
+            <p class="text-sm font-body text-muted-foreground mb-2">
+              Questions? Reach out directly:
+            </p>
+            <a href="mailto:tb.anderson012@gmail.com" class="text-accent-warm font-body hover:underline">
+              tb.anderson012@gmail.com
             </a>
+          </div>
         </div>
+      </div>
     </div>
-</body>
-</html>
+  </section>
+</Layout>
