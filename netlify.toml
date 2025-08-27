@@ -1,0 +1,19 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Form handling
+[context.production.environment]
+  NODE_VERSION = "18"
+
+[[plugins]]
+   package = "@netlify/plugin-form-notifications"
+   [plugins.inputs]
+     email = "nickvee2012@gmail.com"
+
+# Headers for better performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
