@@ -1,5 +1,6 @@
 ---
-import  ImageWithFallback  from './ui/ImageWithFallback.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../images/hero-1200.webp';
 ---
 
 <section id="home" class="bg-gradient-to-br from-background to-muted pt-20">
@@ -48,10 +49,12 @@ import  ImageWithFallback  from './ui/ImageWithFallback.astro';
       </div>
       
       <div class="relative">
-        <ImageWithFallback
-          src="/images/hero.jpg"
+        <Image
+          src={heroImage}
           alt="Tyler Anderson handcrafting custom furniture that brings visions to life"
           class="rounded-2xl shadow-2xl w-full"
+          width={1200}
+          height={800}
         />
         <div class="absolute -bottom-6 -left-6 bg-card p-6 rounded-xl shadow-lg border border-border">
           <div class="flex items-center space-x-3">

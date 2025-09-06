@@ -1,15 +1,18 @@
 ---
-import  ImageWithFallback  from './ui/ImageWithFallback.astro';
+import { Image } from 'astro:assets';
+import tylerImage from '../images/tyler-800.webp';
 ---
 
 <section id="about" class="py-20 bg-background">
   <div class="container mx-auto px-6">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
      <div class="relative">
-      <ImageWithFallback
-      src="/images/tyler.jpg"
-      alt="Tyler Anderson, master craftsman and owner of Ancient Oak Woodworks"
-      class="rounded-2xl shadow-xl w-full object-cover "
+      <Image
+        src={tylerImage}
+        alt="Tyler Anderson, master craftsman and owner of Ancient Oak Woodworks"
+        class="rounded-2xl shadow-xl w-full object-cover"
+        width={800}
+        height={600}
       />
     </div>
       
